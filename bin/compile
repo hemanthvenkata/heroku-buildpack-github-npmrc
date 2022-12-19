@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 build_dir=${1:-}
-env_dir=${3:-}
-GITHUB_PACKAGES_TOKEN="$(cat $env_dir/GITHUB_PACKAGES_TOKEN)"
 
 if [ "GITHUB_PACKAGES_TOKEN" != "" ]; then
 	echo "-----> Creating .npmrc from env GITHUB_PACKAGES_TOKEN"
