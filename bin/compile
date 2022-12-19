@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+build_dir=${1:-}
+env_dir=${3:-}
+GITHUB_PACKAGES_TOKEN="$(cat $env_dir/GITHUB_PACKAGES_TOKEN)"
+
+if [ "GITHUB_PACKAGES_TOKEN" != "" ]; then
+	echo "-----> Creating .npmrc from env GITHUB_PACKAGES_TOKEN"
+	echo -e "engine-strict=true \n # Generate a token with read/write:packages permissions and export from your ~/.bash_profile \n # https://github.com/settings/tokens \n @devforce:registry=https://npm.pkg.github.com \n //npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN} \n always-auth=true" > "$build_dir/.npmrc"
+	exit 0
+else
+  echo "GITHUB_PACKAGES_TOKEN not set!"
+fi
