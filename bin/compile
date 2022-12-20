@@ -7,11 +7,11 @@ GITHUB_PACKAGES_TOKEN="${GITHUB_PACKAGES_TOKEN:-$(cat $env_dir/GITHUB_PACKAGES_T
 if [ "$GITHUB_PACKAGES_TOKEN" != "" ]; then
 	echo "-----> Creating .npmrc from env GITHUB_PACKAGES_TOKEN"
 
-	echo "engine-strict=true" > "$build_dir/.npmrc"
-	# shellcheck disable=SC2129
-	echo "@devforce:registry=https://npm.pkg.github.com" >> "$build_dir/.npmrc"
+#	echo "engine-strict=true" > "$build_dir/.npmrc"
+#	 shellcheck disable=SC2129
+#	echo "@devforce:registry=https://npm.pkg.github.com" >> "$build_dir/.npmrc"
 	echo "//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}" >> "$build_dir/.npmrc"
-	echo "always-auth=true" >> "$build_dir/.npmrc"
+#	echo "always-auth=true" >> "$build_dir/.npmrc"
 
 	exit 0
 else
